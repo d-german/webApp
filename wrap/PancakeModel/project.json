@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45+win+wp80": {
+      "wrappedProject": "../../PancakeModel/PancakeModel.csproj",
+      "bin": {
+        "assembly": "../../PancakeModel/obj/{configuration}/PancakeModel.dll",
+        "pdb": "../../PancakeModel/obj/{configuration}/PancakeModel.pdb"
+      }
+    }
+  }
+}

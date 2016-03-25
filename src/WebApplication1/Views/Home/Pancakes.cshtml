@@ -1,0 +1,46 @@
+﻿@using System.Threading.Tasks
+@using Microsoft.AspNet.Mvc.Rendering
+@model PancakeModel.ButtermilkPancakeRecipe
+
+<h2>How Many Pancakes?</h2>
+<input data-bind="value: numPancakes, valueUpdate:'input'" class="btn btn-group-lg" id="slider1" max="600" min="6" step="6" type="range" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group input-group-lg">
+        <input type="number" class="form-control" id="NumberPancakes" name="NumberPancakes" data-bind="value: numPancakes">
+        <input type="submit" class="btn btn-primary form-control" value="Get Ingredients">
+    </div>
+}
+
+<dl>
+    <dt>Eggs</dt>
+    <dd>@Model.GetEggsAmount()</dd>
+    <dt>Buttermilk</dt>
+    <dd>@Model.GetButtermilkAmount()</dd>
+    <dt>Oil</dt>
+    <dd>@Model.GetOilAmount()</dd>
+    <dt>Baking Powder</dt>
+    <dd>@Model.GetBakingPowderAmount()</dd>
+    <dt>Bakin Soda</dt>
+    <dd>@Model.GetBakingSodaAmount()</dd>
+    <dt>Sugar</dt>
+    <dd>@Model.GetSugerAmount()</dd>
+
+</dl>
+
+@section Scripts {
+    <script>
+        var viewModel = {
+            numPancakes: ko.observable(@Model.NumberPancakes || 12),
+            copyRecpie: function() {
+                alert('@Model.ToString()');
+            }
+        };
+        ko.applyBindings(viewModel);
+       
+
+    </script>
+}

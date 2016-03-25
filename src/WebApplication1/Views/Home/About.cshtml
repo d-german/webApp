@@ -1,0 +1,27 @@
+﻿@using System.Threading.Tasks
+@using WebApplication1.Controllers
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+<h2>How Many: <span data-bind="text: numPancakes"></span></h2>
+<input id="slider1" data-bind="value: numPancakes, valueUpdate:'input'" type="range" min="6" max="600" step="6"/>
+<h5>data-bind="text: @Model.ToString()"</h5>
+<h5>@Model.GetEggsAmount()</h5>
+<h5>
+    @{
+       
+    }
+</h5>
+
+
+
+
+@section Scripts {
+    <script>
+        var viewModel = {
+            numPancakes: ko.observable('12')
+        };
+        ko.applyBindings(viewModel);
+
+    </script>
+}
+<p>Use this area to provide additional information.</p>
